@@ -1,0 +1,38 @@
+.light {
+  --bg-color: hsl(0, 0%, 98%);
+  --text-color: hsl(235, 19%, 35%);
+  --input-bg: white;
+  --list-bg: white;
+  --box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.dark {
+  --bg-color: hsl(235, 21%, 11%);
+  --text-color: hsl(234, 39%, 85%);
+  --input-bg: hsl(235, 24%, 19%);
+  --list-bg: hsl(235, 24%, 19%);
+  --box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.light,
+.dark {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  min-height: 100vh;
+  font-family: "Josefin Sans", sans-serif;
+  background-image: var(--bg-image);
+  background-repeat: no-repeat;
+  background-size: 100% 250px;
+  transition: all 0.3s ease;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100vw;
+  min-height: 100vh;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}

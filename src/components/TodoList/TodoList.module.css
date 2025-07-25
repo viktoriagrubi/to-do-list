@@ -1,0 +1,6 @@
+.list {
+  background: var(--list-bg);
+  box-shadow: var(--box-shadow);
+  border-radius: 5px;
+  overflow: hidden;
+}
