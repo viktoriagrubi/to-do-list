@@ -15,13 +15,13 @@ function TaskInput() {
   return (
     <div className={styles.container}>
       <div className={styles.inputWrapper}>
-        <div className={styles.circle}></div>
+        <div className={styles.circle} />
         <input
           type="text"
           value={task}
           onChange={(e) => setTask(e.target.value)}
           onKeyUp={handleEnterPress}
-          placeholder="Currently typing"
+          placeholder="Add new task"
           className={styles.input}
         />
       </div>
