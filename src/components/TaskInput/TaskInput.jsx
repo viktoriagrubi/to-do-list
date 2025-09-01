@@ -1,14 +1,14 @@
 import { useState } from "react";
 import styles from "./TaskInput.module.css";
 
-function TaskInput() {
+function TaskInput({ onAddTask }) {
   const [task, setTask] = useState("");
 
   const handleEnterPress = (e) => {
-    if (e.key !== "Enter") {
-      return;
-    }
+    if (e.key !== "Enter") return;
     if (!task.trim()) return;
+
+    onAddTask(task);
     setTask("");
   };
 
