@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 import styles from "./App.module.css";
 import TaskInput from "./components/TaskInput/TaskInput";
 import TaskList from "./components/TaskList/TaskList";
@@ -7,6 +8,7 @@ function App() {
   const [tasks, setTasks] = useState([]);
 
   const handleAddTask = (task) => {
+    const newTask = { id: uuidv4(), text: task };
     setTasks((prev) => [...prev, task]);
   };
 
