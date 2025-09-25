@@ -9,7 +9,7 @@ function App() {
 
   const handleAddTask = (task) => {
     const newTask = { id: uuidv4(), text: task };
-    setTasks((prev) => [...prev, task]);
+    setTasks((prev) => [...prev, newTask]);
   };
 
   return (

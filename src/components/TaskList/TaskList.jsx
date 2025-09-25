@@ -1,5 +1,4 @@
 import styles from "./TaskList.module.css";
-import { v4 as uuidv4 } from "uuid";
 
 function TaskList({ tasks }) {
   return (
@@ -7,7 +6,7 @@ function TaskList({ tasks }) {
       {tasks.map((task) => (
         <div key={task.id} className={styles.taskItem}>
           <div className={styles.circle}></div>
-          <span>{task}</span>
+          <span>{task.text}</span>
         </div>
       ))}
     </div>
