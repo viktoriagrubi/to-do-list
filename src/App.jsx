@@ -8,8 +8,18 @@ function App() {
   const [tasks, setTasks] = useState([]);
 
   const handleAddTask = (task) => {
-    const newTask = { id: uuidv4(), text: task };
+    const newTask = { id: uuidv4(), text: task, completed: false };
     setTasks((prev) => [...prev, newTask]);
+  };
+
+  const handleToggleTask = (id) => {
+    setTasks((prev) =>
+      prev.map((t) => (t.id === id ? { ...t, completed: !t.completed } : t))
+    );
+  };
+
+  const handleDeleteTask = (id) => {
+    setTasks((prev) => prev.filter((t) => t.id !== id));
   };
 
   return (
@@ -18,7 +28,11 @@ function App() {
       <div className={styles.container}>
         <div className={styles.header}>TODO</div>
         <TaskInput onAddTask={handleAddTask} />
-        <TaskList tasks={tasks} />
+        <TaskList
+          tasks={tasks}
+          onToggleTask={handleToggleTask}
+          onDeleteTask={handleDeleteTask}
+        />
       </div>
     </>
   );
