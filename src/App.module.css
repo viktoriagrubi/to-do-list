@@ -11,10 +11,16 @@
   font-weight: bold;
   font-size: 35px;
   letter-spacing: 8px;
+  margin-bottom: 8px;
 }
 
 .container {
   margin: 0 auto;
   width: 500px;
-  margin-top: -250px;
+  transform: translateY(-229px);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+  z-index: 1;
 }
