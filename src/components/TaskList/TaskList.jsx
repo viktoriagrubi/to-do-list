@@ -2,17 +2,7 @@ import styles from "./TaskList.module.css";
 import iconCheck from "../../assets/images/icon-check.svg";
 import clsx from "clsx";
 
-function TaskList({ tasks, setTasks }) {
-  const handleToggleTask = (id) => {
-    setTasks((prev) =>
-      prev.map((t) => (t.id === id ? { ...t, completed: !t.completed } : t))
-    );
-  };
-
-  const handleDeleteTask = (id) => {
-    setTasks((prev) => prev.filter((t) => t.id !== id));
-  };
-
+function TaskList({ tasks, onToggleTask, onDeleteTask }) {
   return (
     <div className={styles.listContainer}>
       {tasks.map((task) => (
@@ -26,7 +16,7 @@ function TaskList({ tasks, setTasks }) {
             className={clsx(styles.circle, {
               [styles.checkedCircle]: task.completed,
             })}
-            onClick={() => handleToggleTask(task.id)}
+            onClick={() => onToggleTask(task.id)}
           >
             {task.completed && (
               <img src={iconCheck} alt="checked" className={styles.checkIcon} />
@@ -37,7 +27,7 @@ function TaskList({ tasks, setTasks }) {
 
           <button
             className={styles.deleteButton}
-            onClick={() => handleDeleteTask(task.id)}
+            onClick={() => onDeleteTask(task.id)}
           >
             ✕
           </button>

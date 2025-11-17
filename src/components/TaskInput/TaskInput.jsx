@@ -1,15 +1,9 @@
 import { useState } from "react";
-import { v4 as uuidv4 } from "uuid";
 import styles from "./TaskInput.module.css";
 
-function TaskInput({ tasks, setTasks }) {
+function TaskInput({ onAddTask }) {
   const [task, setTask] = useState("");
   const [error, setError] = useState("");
-
-  const handleAddTask = (taskText) => {
-    const newTask = { id: uuidv4(), text: taskText, completed: false };
-    setTasks((prev) => [...prev, newTask]);
-  };
 
   const handleEnterPress = (e) => {
     if (e.key !== "Enter") return;
@@ -18,7 +12,7 @@ function TaskInput({ tasks, setTasks }) {
       return;
     }
 
-    handleAddTask(task);
+    onAddTask(task);
     setTask("");
     setError("");
   };
