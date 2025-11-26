@@ -1,0 +1,32 @@
+.filterContainer {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+}
+
+.filterContainer button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+
+  color: hsl(235, 19%, 35%);
+  transition: color 0.2s ease;
+}
+
+.filterContainer button:hover {
+  color: hsl(235, 19%, 15%);
+}
+
+.active {
+  color: hsl(220, 98%, 61%);
+  font-weight: 700;
+}
+
+.clear {
+  color: hsl(235, 19%, 35%);
+}
+
+.clear:hover {
+  color: hsl(235, 19%, 15%);
+}
