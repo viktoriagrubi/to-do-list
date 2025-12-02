@@ -43,6 +43,11 @@ function ToDoList() {
   });
 
   const handleClearCompleted = () => {
+    const isConfirmed = window.confirm(
+      "Are you sure you want to clear all completed tasks?"
+    );
+
+    if (!isConfirmed) return;
     setTasks((prev) => prev.filter((task) => !task.completed));
   };
   return (
