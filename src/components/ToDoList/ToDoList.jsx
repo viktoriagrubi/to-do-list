@@ -4,6 +4,9 @@ import TaskList from "../TaskList/TaskList";
 import { v4 as uuidv4 } from "uuid";
 import styles from "./ToDoList.module.css";
 import TaskFilter from "../TaskFilter/TaskFilter";
+import Cookies from "js-cookie";
+import { COOKIE_TASKS_KEY } from "../../constants/cookies";
+import { COOKIE_DEFAULT_SETTINGS } from "../../constants/cookies";
 
 import {
   STATUS_ACTIVE,
@@ -12,24 +15,51 @@ import {
 } from "../../constants/statuses";
 
 function ToDoList() {
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState(() => {
+    const saved = Cookies.get(COOKIE_TASKS_KEY);
+    return saved ? JSON.parse(saved) : [];
+  });
   const [filter, setFilter] = useState(STATUS_ALL);
 
   const handleAddTask = (text) => {
     const newTask = { id: uuidv4(), text, completed: false };
-    setTasks((prev) => [...prev, newTask]);
+    setTasks((prev) => {
+      const updated = [...prev, newTask];
+      Cookies.set(
+        COOKIE_TASKS_KEY,
+        JSON.stringify(updated),
+        COOKIE_DEFAULT_SETTINGS
+      );
+      return updated;
+    });
   };
 
   const handleToggleTask = (id) => {
-    setTasks((prev) =>
-      prev.map((t) => (t.id === id ? { ...t, completed: !t.completed } : t))
-    );
+    setTasks((prev) => {
+      const updated = prev.map((task) =>
+        task.id === id ? { ...task, completed: !task.completed } : task
+      );
+      Cookies.set(
+        COOKIE_TASKS_KEY,
+        JSON.stringify(updated),
+        COOKIE_DEFAULT_SETTINGS
+      );
+      return updated;
+    });
 
     setFilter(STATUS_ALL);
   };
 
   const handleDeleteTask = (id) => {
-    setTasks((prev) => prev.filter((t) => t.id !== id));
+    setTasks((prev) => {
+      const updated = prev.filter((task) => task.id !== id);
+      Cookies.set(
+        COOKIE_TASKS_KEY,
+        JSON.stringify(updated),
+        COOKIE_DEFAULT_SETTINGS
+      );
+      return updated;
+    });
   };
 
   const handleFilterChange = (newFilter) => {
@@ -48,7 +78,15 @@ function ToDoList() {
     );
 
     if (!isConfirmed) return;
-    setTasks((prev) => prev.filter((task) => !task.completed));
+    setTasks((prev) => {
+      const updated = prev.filter((task) => !task.completed);
+      Cookies.set(
+        COOKIE_TASKS_KEY,
+        JSON.stringify(updated),
+        COOKIE_DEFAULT_SETTINGS
+      );
+      return updated;
+    });
   };
   return (
     <div className={styles.todoContainer}>
