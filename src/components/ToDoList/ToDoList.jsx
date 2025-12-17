@@ -5,6 +5,8 @@ import { v4 as uuidv4 } from "uuid";
 import styles from "./ToDoList.module.css";
 import TaskFilter from "../TaskFilter/TaskFilter";
 import Cookies from "js-cookie";
+import { COOKIE_TASKS_KEY } from "../../constants/cookies";
+import { COOKIE_DEFAULT_SETTINGS } from "../../constants/cookies";
 
 import {
   STATUS_ACTIVE,
@@ -14,7 +16,7 @@ import {
 
 function ToDoList() {
   const [tasks, setTasks] = useState(() => {
-    const saved = Cookies.get("tasks");
+    const saved = Cookies.get(COOKIE_TASKS_KEY);
     return saved ? JSON.parse(saved) : [];
   });
   const [filter, setFilter] = useState(STATUS_ALL);
@@ -23,8 +25,11 @@ function ToDoList() {
     const newTask = { id: uuidv4(), text, completed: false };
     setTasks((prev) => {
       const updated = [...prev, newTask];
-      Cookies.set("tasks", JSON.stringify(updated));
-      console.log("Tasks in cookies after add:", Cookies.get("tasks"));
+      Cookies.set(
+        COOKIE_TASKS_KEY,
+        JSON.stringify(updated),
+        COOKIE_DEFAULT_SETTINGS
+      );
       return updated;
     });
   };
@@ -34,8 +39,11 @@ function ToDoList() {
       const updated = prev.map((task) =>
         task.id === id ? { ...task, completed: !task.completed } : task
       );
-      Cookies.set("tasks", JSON.stringify(updated), { path: "/", expires: 7 });
-      console.log("Tasks in cookies after toggle:", Cookies.get("tasks"));
+      Cookies.set(
+        COOKIE_TASKS_KEY,
+        JSON.stringify(updated),
+        COOKIE_DEFAULT_SETTINGS
+      );
       return updated;
     });
 
@@ -45,8 +53,11 @@ function ToDoList() {
   const handleDeleteTask = (id) => {
     setTasks((prev) => {
       const updated = prev.filter((task) => task.id !== id);
-      Cookies.set("tasks", JSON.stringify(updated));
-      console.log("Tasks in cookies after delete:", Cookies.get("tasks"));
+      Cookies.set(
+        COOKIE_TASKS_KEY,
+        JSON.stringify(updated),
+        COOKIE_DEFAULT_SETTINGS
+      );
       return updated;
     });
   };
@@ -69,10 +80,10 @@ function ToDoList() {
     if (!isConfirmed) return;
     setTasks((prev) => {
       const updated = prev.filter((task) => !task.completed);
-      Cookies.set("tasks", JSON.stringify(updated));
-      console.log(
-        "Tasks in cookies after clear completed:",
-        Cookies.get("tasks")
+      Cookies.set(
+        COOKIE_TASKS_KEY,
+        JSON.stringify(updated),
+        COOKIE_DEFAULT_SETTINGS
       );
       return updated;
     });
