@@ -2,9 +2,14 @@ import styles from "./TaskList.module.css";
 import iconCheck from "../../assets/images/icon-check.svg";
 import clsx from "clsx";
 
-function TaskList({ tasks, onToggleTask, onDeleteTask }) {
+function TaskList({ tasks, onToggleTask, onDeleteTask, theme }) {
   return (
-    <div className={styles.listContainer}>
+    <div
+      className={clsx(
+        styles.listContainer,
+        theme === "dark" ? styles.dark : styles.light
+      )}
+    >
       {tasks.map((task) => (
         <div
           key={task.id}

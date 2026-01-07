@@ -2,10 +2,33 @@
   padding-top: 24px;
 }
 
+.light .inputWrapper {
+  background: white;
+}
+
+.light .input {
+  color: #374151;
+}
+
+.light .input::placeholder {
+  color: #9ca3af;
+}
+
+.dark .inputWrapper {
+  background: hsl(235, 24%, 19%);
+}
+
+.dark .input {
+  color: hsl(234, 39%, 85%);
+}
+
+.dark .input::placeholder {
+  color: hsl(233, 14%, 35%);
+}
+
 .inputWrapper {
   display: flex;
   align-items: center;
-  background: white;
   padding: 18px 16px;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -24,7 +47,7 @@
   border: none;
   outline: none;
   font-size: 16px;
-  color: #374151;
+  background: transparent;
 }
 
 .error {

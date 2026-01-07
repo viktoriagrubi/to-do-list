@@ -1,12 +1,13 @@
 import { useState } from "react";
 import styles from "./TaskInput.module.css";
 
-function TaskInput({ onAddTask }) {
+function TaskInput({ onAddTask, theme }) {
   const [task, setTask] = useState("");
   const [error, setError] = useState("");
 
   const handleEnterPress = (e) => {
     if (e.key !== "Enter") return;
+
     if (!task.trim()) {
       setError("Task cannot be empty");
       return;
@@ -18,9 +19,14 @@ function TaskInput({ onAddTask }) {
   };
 
   return (
-    <div className={styles.container}>
+    <div
+      className={`${styles.container} ${
+        theme === "dark" ? styles.dark : styles.light
+      }`}
+    >
       <div className={styles.inputWrapper}>
         <div className={styles.circle} />
+
         <input
           type="text"
           value={task}
@@ -30,6 +36,7 @@ function TaskInput({ onAddTask }) {
           className={styles.input}
         />
       </div>
+
       {error && <p className={styles.error}>{error}</p>}
     </div>
   );
