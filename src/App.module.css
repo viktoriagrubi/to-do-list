@@ -1,19 +1,8 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: hsl(235, 21%, 11%);
-}
-
 .appBackground {
-  width: 100vw;
   height: 300px;
-  background-position: center;
-  background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
+  width: 100%;
 }
 
 .light {
@@ -22,6 +11,35 @@ body {
 
 .dark {
   background-image: url("./assets/images/bg-desktop-dark.jpg");
+}
+
+.container {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 500px;
+  transform: translateY(-229px);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.headerRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header {
+  color: white;
+  font-weight: bold;
+  font-size: 35px;
+  letter-spacing: 8px;
+}
+
+.themeIcon {
+  cursor: pointer;
 }
 
 @media (max-width: 768px) {
@@ -36,50 +54,8 @@ body {
   .dark {
     background-image: url("./assets/images/bg-mobile-dark.jpg");
   }
-}
 
-.container {
-  margin: 0 auto;
-  width: 100%;
-  max-width: 500px;
-  transform: translateY(-229px);
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  position: relative;
-  z-index: 1;
-  padding: 0 16px;
-}
-
-.headerRow {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.header {
-  color: white;
-  font-weight: bold;
-  font-size: 35px;
-  letter-spacing: 8px;
-  margin-bottom: 8px;
-}
-
-.themeIcon {
-  cursor: pointer;
-}
-
-@media (max-width: 768px) {
   .container {
-    transform: translateY(-140px);
-    padding-left: 30px;
-    padding-right: 30px;
-    gap: 16px;
-  }
-
-  .header {
-    font-size: 28px;
-    letter-spacing: 10px;
-    margin-bottom: 12px;
+    transform: translateY(-190px);
   }
 }
