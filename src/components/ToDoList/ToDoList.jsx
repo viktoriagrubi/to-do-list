@@ -132,6 +132,7 @@ function ToDoList({ theme }) {
             onFilterChange={handleFilterChange}
             onClearCompleted={handleClearCompleted}
             theme={theme}
+            className={styles.mobileFilters}
           />
         </div>
       </div>

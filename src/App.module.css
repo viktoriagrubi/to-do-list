@@ -41,3 +41,21 @@
 .themeIcon {
   cursor: pointer;
 }
+
+@media (max-width: 768px) {
+  .appBackground {
+    height: 200px;
+  }
+
+  .light {
+    background-image: url("./assets/images/bg-mobile-light.jpg");
+  }
+
+  .dark {
+    background-image: url("./assets/images/bg-mobile-dark.jpg");
+  }
+
+  .container {
+    transform: translateY(-190px);
+  }
+}
