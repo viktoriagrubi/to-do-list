@@ -1,21 +1,22 @@
-✅ To-Do List App
+To-Do List App
+✅ Overview
 
-Prosta aplikacja To-Do List stworzona w React, umożliwiająca dodawanie i usuwanie zadań.
-Projekt został wykonany jako ćwiczenie praktyczne i element portfolio frontendowego.
+A simple To-Do List application built with React, allowing users to add and remove tasks.
+This project demonstrates core frontend skills: React components, state management, and clean UI design.
 
-🔍 Opis projektu
+🔍 Project Description
 
-Aplikacja pozwala użytkownikowi:
+The app enables users to:
 
-dodawać nowe zadania do listy,
+Add new tasks to the list
 
-wyświetlać aktualną listę zadań,
+View the current list of tasks
 
-usuwać wybrane zadania.
+Delete tasks
 
-Projekt skupia się na podstawach Reacta: komponentach funkcyjnych, zarządzaniu stanem oraz czytelnej strukturze kodu. Jest to projekt odpowiedni dla poziomu Junior Frontend Developer.
+This project focuses on React fundamentals, functional components, and state handling with Hooks. It’s ideal for a junior frontend developer portfolio.
 
-🛠️ Technologie
+🛠️ Technologies
 
 React
 
@@ -25,64 +26,61 @@ HTML5
 
 CSS3
 
-✨ Funkcjonalności
+✨ Features
 
-dodawanie zadań,
+Add tasks
 
-usuwanie zadań,
+Delete tasks
 
-dynamiczne renderowanie listy,
+Dynamic list rendering
 
-zarządzanie stanem aplikacji przy użyciu React Hooks.
+State management using React Hooks
 
-📦 Instalacja i uruchomienie
+📦 Installation & Running
 
-Sklonuj repozytorium:
+Clone the repository:
 
 git clone https://github.com/viktoriagrubi/to-do-list.git
 
 
-Przejdź do katalogu projektu:
+Navigate to the project folder:
 
 cd to-do-list
 
 
-Zainstaluj zależności:
+Install dependencies:
 
 npm install
 
 
-Uruchom aplikację:
+Run the app:
 
 npm start
 
 
-Aplikacja będzie dostępna pod adresem:
-http://localhost:3000
+Open in your browser: http://localhost:3000
 
-🎯 Cel projektu
+🎯 Learning Goals
 
-Celem projektu było:
+React basics with functional components
 
-utrwalenie podstaw Reacta,
+State management with Hooks
 
-nauka pracy z komponentami funkcyjnymi,
+Dynamic UI rendering
 
-zarządzanie stanem aplikacji,
+Building a small, functional project for portfolio
 
-stworzenie prostego projektu do portfolio.
+🚀 Potential Improvements
 
-🚀 Możliwe dalsze usprawnienia
+Save tasks to localStorage
 
-zapisywanie zadań w localStorage,
+Mark tasks as completed
 
-oznaczanie zadań jako wykonane,
+Task filtering
 
-filtrowanie zadań,
+Drag-and-drop task reordering
 
-rozbudowa interfejsu użytkownika.
-
-👩‍💻 Autor
+👩‍💻 Author
 
 Wiktoria Grubizna
 GitHub: https://github.com/viktoriagrubi
